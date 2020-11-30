@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"Invisible Gorilla 201101\"\nauthor: \"coop711\"\ndate: \"`r Sys.Date()`\"\noutput: html_document\n---\n\n<!--\n### Data\n\n```{r, library and read, echo=FALSE, message=FALSE, results='hide'}\nlibrary(xlsx)\nlibrary(pander)\nlibrary(ggplot2)\noptions(digits=3)\ngorilla <- read.csv(\"../data/eastnwest201101.csv\", header = TRUE, stringsAsFactors = TRUE)\nstr(gorilla)\n```\n\n\n```{r, data restructuring, echo = FALSE, results='hide'}\nnames(gorilla) <- c(\"Code\", \"Q1\", \"Q2\", \"Q3\", \"Q4\", \"Q5\", \"Q6\")\nstr(gorilla)\nflower <- factor(gorilla$Q3, levels = 1:2, labels = c(\"A그룹\", \"B그룹\"))\ndax <- factor(gorilla$Q1, levels = 1:2, labels = c(\"나무로 된 직육면체\", \"파란색 플라스틱 원기둥\"))\nstill_happy <- factor(gorilla$Q4, levels = 1:2, labels=c(\"행복해 보인다\", \"행복해 보이지 않는다\"))\nmonkey_banana_panda <- factor(gorilla$Q2, levels = 1:3, labels = c(\"원숭이와 바나나\", \"원숭이와 팬더\", \"팬더와 바나나\"))\nwhich_one_in_front <- factor(gorilla$Q5, levels = 1:3, labels = c(\"맨 위의 비행접시\", \"중간의 비행접시\", \"맨 아래 비행접시\"))\nwind_blows <- factor(gorilla$Q5, levels = 1:2, labels = c(\"바람이 빠졌을 것\", \"바람이 불었을 것\"))\n```\n-->\n\n### 응답 결과\n\n```{r, responses, echo = FALSE}\npander(table(flower), caption = \"이 꽃은 어느 그룹에?\")\npander(table(dax), caption = \"어떤 것이 닥스인가?\")\npander(table(monkey_banana_panda), caption = \"두 개를 고른다면?\")\npander(round(prop.table(table(monkey_banana_panda))*100, digits = 2), caption = \"두 개를 고른다면?(%)\")\npander(table(still_happy), caption = \"여전히 행복한가요?\")\npander(table(which_one_in_front), caption = \"어느 것이 앞쪽에 있나요?\")\n# mbp_region.tbl <- table(\"출신 지역\" = gorilla$Region, monkey_banana_panda)\n# mbp_region.tbl.a <- addmargins(mbp_region.tbl)\n# colnames(mbp_region.tbl.a)[4] <- \"계\"\n# rownames(mbp_region.tbl.a)[3] <- \"계\"\n# pander(mbp_region.tbl.a, caption = \"출신 지역과 두 개를 고른다면?\")\n# mbp_region.tbl.p <- round(prop.table(mbp_region.tbl, margin = 1)*100, digits = 2)\n# mbp_region.tbl.p.a <- addmargins(mbp_region.tbl.p, margin = 2)\n# colnames(mbp_region.tbl.p.a)[4] <- \"계\"\n# pander(mbp_region.tbl.p.a,  caption = \"출신 지역과 두 개를 고른다면?(%)\")\n# front_region.tbl <- table(\"출신 지역\" = gorilla$Region, which_one_in_front)\n# front_region.tbl.a <- addmargins(front_region.tbl)\n# colnames(front_region.tbl.a)[4] <- \"계\"\n# rownames(front_region.tbl.a)[3] <- \"계\"\n# pander(front_region.tbl.a, caption = \"출신 지역과 어느 것이 앞에?\")\n# front_region.tbl.p <- round(prop.table(front_region.tbl, margin = 1)*100, digits = 2)\n# front_region.tbl.p.a <- addmargins(front_region.tbl.p, margin = 2)\n# colnames(front_region.tbl.p.a)[4] <- \"계\"\n# pander(front_region.tbl.p.a,  caption = \"출신 지역과 어느 것이 앞에?(%)\")\npander(table(monkey_banana_panda, which_one_in_front), caption = \"원숭이-바나나-팬더와 어느 것이 앞에?\")\n```\n\n<!--\n### 자료 갈무리\n\n```{r, save.image, echo=FALSE}\nsave.image(\"gorilla_201101.rda\")\n```\n-->",
+    "created" : 1464539057884.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1255293935",
+    "id" : "37E536E7",
+    "lastKnownWriteTime" : 1479612319,
+    "last_content_update" : 1479612319,
+    "path" : "~/Google 드라이브/Works/Class/Statistics/R.WD/Class_data/class2011/R/gorilla_201101.Rmd",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
